@@ -1,10 +1,10 @@
 #!/bin/env groovy
 
-@Library('shared@master')
+@Library("shared${SCRIPT_VERSION}")
 import testing;
 
 node ("master") {
-	env.HOGE = "hoge"
+
 	testing {
     	APP_NAME = "ainai"
 	}
