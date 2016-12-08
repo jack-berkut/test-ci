@@ -1,6 +1,6 @@
 #!/bin/env groovy
 
-@Library("shared${SCRIPT_VERSION}")
+@Library("shared${env.SCRIPT_VERSION}")
 import testing;
 
 node ("master") {
