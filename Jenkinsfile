@@ -3,6 +3,8 @@
 @Library('shared@master')
 import testing;
 
-testing {
-    APP_NAME = "ainai"
+node ("master") {
+	testing {
+    	APP_NAME = "ainai"
+	}
 }
