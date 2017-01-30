@@ -49,6 +49,9 @@ dependencies {
     compile "org.apache.commons:commons-lang3:3.4"
     compile "com.ibm.icu:icu4j:57.1"
     runtime "com.h2database:h2:1.4.+"
+    testCompile "junit:junit:4.+"
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "org.assertj:assertj-core:3.4.1"
 }
 
 task wrapper(type: Wrapper) {
