@@ -4,5 +4,13 @@ language: java
 jdk:
   - oraclejdk8
 
+cache:
+  directories:
+  - $HOME/.gradle/caches
+
+services:
+- docker
+
 script: 
-  - gradle clean test
+  - gradle clean build -x test
+  - docker images
