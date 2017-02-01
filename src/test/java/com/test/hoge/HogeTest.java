@@ -1,23 +1,30 @@
 package com.test.hoge;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
 import com.test.Application;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(Application.class)
+@SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
+@ContextConfiguration(classes = Application.class)
 public class HogeTest {
 	@Autowired
-    private MockMvc mockMvc;
+    private TestRestTemplate restTemplate;
 	
 	@Test
-	public void sampleCase() {
-		System.out.println("hoge");
+	public void sampleCase() throws Exception {
+		String actual = restTemplate.getForObject("/hoge/", String.class);
+		assertThat(actual, is("ainai"));
 	}
 	
 }
