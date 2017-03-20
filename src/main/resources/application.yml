@@ -1,6 +1,0 @@
-spring:
-  application.name: test-ci
-    
-security:
-  basic.enabled: false
-  user.password: unused 
