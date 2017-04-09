@@ -1,11 +1,5 @@
 #!/bin/env groovy
 
-@Library("shared") _
-import testing;
-
 node ("master") {
-
-	testing {
-    	APP_NAME = "ainai"
-	}
+	build job: 'test-app', parameters: [string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
